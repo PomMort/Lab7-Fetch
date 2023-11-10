@@ -18,7 +18,7 @@ export default function NavigationBar(props) {
 
   const [user, setUser] = useState(localStorage.getItem('user'));
 
-  
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -32,8 +32,8 @@ export default function NavigationBar(props) {
 
     setTimeout(() => {
       window.location.replace("http://localhost:3000/login");
-  }, 800);
-    
+    }, 800);
+
   }
 
   const drawer = (
@@ -46,10 +46,11 @@ export default function NavigationBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-
-            <ListItemButton href="#simple-list" sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
+            <Link to={item === 'Home' ? '/' : item} style={{textDecorationLine : 'none', color : 'black'}}>
+              <ListItemButton href="#simple-list" sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item} />
+              </ListItemButton>
+            </Link>
 
           </ListItem>
         ))}
@@ -57,7 +58,7 @@ export default function NavigationBar(props) {
     </Box>
   );
 
- 
+
 
   return (
     <Box sx={{ display: 'flex' }}>
